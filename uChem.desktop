@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=uChem
+Comment=My project description
+Exec=/usr/bin/qmlscene $@ /usr/share/uChem/uChem.qml
+Icon=./icons/uChemAppIcon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true

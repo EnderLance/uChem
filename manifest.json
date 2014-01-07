@@ -1,0 +1,15 @@
+{
+    "architecture": "all",
+    "description": "description of uChem",
+    "framework": "ubuntu-sdk-13.10",
+    "hooks": {
+        "uChem": {
+            "apparmor": "uChem.json",
+            "desktop": "uChem.desktop"
+        }
+    },
+    "maintainer": "",
+    "name": "com.ubuntu.developer.enderlances.uchem",
+    "title": "uChem",
+    "version": "0.1"
+}
