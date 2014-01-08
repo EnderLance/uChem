@@ -4,19 +4,17 @@ import Ubuntu.Components 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 
 
-UbuntuShape
+Item
 {
     id: shape
-    height: units.gu(75)
-    width: units.gu(50)
 
-    property string name: ""
-    property string symbol: ""
     property string wikipedia: ""
-    property string density: ""
-    property string weight: ""
-    property string category: ""
-    property int number: 0
+    property string name;
+    property string symbol;
+    property string density;
+    property string weight;
+    property string category;
+    property int number;
 
     ListItem.SingleValue
     {
@@ -52,6 +50,7 @@ UbuntuShape
         text: "Atomic Weight: "+weight.toString()
     }
 
+    /*
     ListItem.Standard
     {
         anchors.top: weightSlot.bottom
@@ -60,14 +59,14 @@ UbuntuShape
         text:"More info: "+wikipedia
         onClicked:
         {
-            wikiLink.text = wikipedia
             pageStack.push(elementWikiPage)
         }
     }
+    */
 
     ListItem.Standard
     {
-        anchors.top: linkSlot.bottom
+        anchors.top: weightSlot.bottom
         id: imageSlot
         progression: true
         text: "Image"

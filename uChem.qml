@@ -167,10 +167,12 @@ MainView {
             title: "Elements List"
             visible: false
 
+
             tools: toolbar
 
             Column
             {
+                id: listColumn
                 spacing: units.gu(1)
                 anchors
                 {
@@ -203,12 +205,18 @@ MainView {
 
                     delegate: Subtitled
                     {
+
+                        id: delegate
                         text: model.Element
                         subText: model.AtomicNumber
                         progression: true
                         onClicked:
                         {
+                            elementPage.dataNumber = (model.AtomicNumber - 1)
+                            print("Atomic number is: "+model.AtomicNumber)
+                            print("elementPage's dataNumber is "+elementPage.dataNumber)
                             pageStack.push(elementPage)
+                            print("elementPage's dataNumber is "+elementPage.dataNumber)
                             currentElement.text = model.Element
                         }
                     }
@@ -221,21 +229,19 @@ MainView {
             id: elementPage
 
             title: currentElement.text
+
+            property int dataNumber;
+
             visible: false
 
             tools: toolbar
 
-            Column
-            {
-                spacing: units.gu(1)
-                anchors
-                {
-                    margins: units.gu(2)
-                    fill: parent
-                }
+            anchors.fill: parent
 
                 ListView
                 {
+                    anchors.fill: parent
+
                     id: elementInfoList
 
                     height: parent.height
@@ -246,29 +252,28 @@ MainView {
                         id: elementListModel
                         source: "pte.json"
 
-                        query: "$.table[*]"
+                        query: "$.table["+elementPage.dataNumber+"]"
 
                     }
 
                     model: elementListModel.model
 
-                    delegate: ElementInfoBox
-                    {
+                    delegate: ElementInfoBox {
                         height: parent.height
                         width: parent.width
 
                         name: model.Element
                         symbol: model.Symbol
                         number: model.AtomicNumber
-                        weight: model.AtomicWeight
                         density: model.Density
-                        wikipedia: "en.m.wikipedia.org/wiki/"+model.Element
+                        category: model.Category
+                        weight: model.AtomicWeight
+                        //wikipedia: "https://en.m.wikipedia.org/wiki/"+(model.Element.toString).toLowerCase
                     }
                 }
-
-            }
         }
 
+        /*
         Page
         {
             id: elementWikiPage
@@ -311,6 +316,7 @@ MainView {
                 }
             }
         }
+        */
 
         Page
         {
@@ -332,6 +338,8 @@ MainView {
         }
     }
 
+
+
     Text
     {
         id: currentElement
@@ -339,10 +347,13 @@ MainView {
         visible: false
     }
 
+    /*
     Text
     {
         id: wikiLink
         text: "www.google.com"
         visible: false
     }
+    */
 }
+
