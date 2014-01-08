@@ -1,7 +1,12 @@
 { 
   "table": {
       "Hydrogen": [
-        { "symbol": "H", "name": "Hydrogen", "protons": 1, "neutrons": 0, "link": "http://en.m.wikipedia.org/wiki/Hydrogen" }
+        { "symbol": "H", 
+          "name": "Hydrogen", 
+          "protons": 1, 
+          "neutrons": 0, 
+          "link": "http://en.m.wikipedia.org/wiki/Hydrogen" 
+        }
       ],
 
       "Helium": [
@@ -9,7 +14,12 @@
       ],
 
       "Lithium": [
-	{ "symbol": "Li", "name": "Lithium", "protons": 3, "neutrons": 4, "link": "http://en.m.wikipedia.org/wiki/Lithium" }
+	{ "symbol": "Li", 
+          "name": "Lithium", 
+          "protons": 3, 
+          "neutrons": 4, 
+          "link": "http://en.m.wikipedia.org/wiki/Lithium" 
+        }
       ],
 
       "Beryllium": [
